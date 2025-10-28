@@ -20,6 +20,7 @@ function LoggerDev(msg)
     MsgC(Color(63, 163, 191), "[", Color(31, 119, 163), "[Dev] Logs", Color(63, 163, 191), "] ", Color(150, 220, 150), "Console: ", Color(200, 200, 200), msg .. "\n")
 end
 
+net.Receive("GrantAccessToPly", function() LoggerPlayer(LocalPlayer(), net.ReadString()) end)
 Logger("---------------------------------")
 Logger("Chocolate RolePlay Open Aura 1.0")
 Logger("---------------------------------")
