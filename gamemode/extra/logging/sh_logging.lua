@@ -21,5 +21,5 @@ function LoggerDev(msg)
 end
 
 Logger("---------------------------------")
-Logger("Chocolate RolePlay Open Alpha 1.0")
+Logger("Chocolate RolePlay Open Aura 1.0")
 Logger("---------------------------------")

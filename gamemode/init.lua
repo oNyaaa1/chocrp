@@ -8,10 +8,9 @@ for k, v in pairs(file.Find("materials/chocorp/*", "GAME")) do
 end
 
 function GM:PlayerSpawn(ply)
-    ply:SetupHands() -- Create the hands and call GM:PlayerSetHandsModel
+    ply:SetupHands()
 end
 
--- Choose the model for hands according to their player model.
 function GM:PlayerSetHandsModel(ply, ent)
     local simplemodel = player_manager.TranslateToPlayerModelName(ply:GetModel())
     local info = player_manager.TranslatePlayerHands(simplemodel)

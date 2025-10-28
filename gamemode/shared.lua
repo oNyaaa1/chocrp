@@ -42,6 +42,7 @@ IncludeDir = function(dir)
     end
 end
 
+IncludeDir("chocrp/gamemode/thirdparty")
 IncludeDir("chocrp/gamemode/configs")
 IncludeDir("chocrp/gamemode/extra")
 IncludeDir("chocrp/gamemode/main")
