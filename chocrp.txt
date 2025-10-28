@@ -1,0 +1,8 @@
+"chocrp"
+{
+	"base"		    "base"
+	"title"		    "Chocolate | RolePlay"
+	"maps"		    ""
+	"category"	    "pve"
+	"menusystem"	"1"
+}
