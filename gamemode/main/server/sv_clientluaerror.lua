@@ -1,0 +1,5 @@
+hook.Add("OnClientLuaError", "Test", function(sError, pPlayer, tStack, sNameAddon)
+    print("tStack:")
+    PrintTable(tStack)
+    print("The player " .. (IsValid(pPlayer) and pPlayer:Nick() or "unknown") .. " has encountered an error in addon '" .. sNameAddon .. "' : " .. sError)
+end)

@@ -1,6 +1,6 @@
 local Hud = {}
 local w, h = ScrW(), ScrH()
-Hud.Posx, Hud.Posy = w * 0.8, h * 0.86
+Hud.Posx, Hud.Posy =  10, h * 0.86
 surface.CreateFont("Choc_RP_Font", {
     font = "Arial",
     extended = false,
