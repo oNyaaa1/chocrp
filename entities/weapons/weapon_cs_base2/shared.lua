@@ -30,7 +30,7 @@ if CLIENT then
 end
 
 SWEP.Base = "weapon_base"
-SWEP.Author = ""
+SWEP.Author = "DarkRP Developers"
 SWEP.Contact = ""
 SWEP.Purpose = ""
 SWEP.Instructions = ""

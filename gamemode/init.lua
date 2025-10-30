@@ -7,7 +7,17 @@ for k, v in pairs(file.Find("materials/chocorp/*", "GAME")) do
     resource.AddFile("materials/chocorp/" .. v)
 end
 
+timer.Create("HeartBeatSystem", 1, 0, function()
+    for k, ply in pairs(player.GetAll()) do
+        if ply.SoundHB == nil then ply.SoundHB = CreateSound(ply, "player/heartbeat1.wav") end
+        if not ply.SoundHB:IsPlaying() then
+            ply.SoundHB:Play()
+        end
+    end
+end)
+
 function GM:PlayerSpawn(ply)
+    ply:EmitSound("vo/canals/male01/stn6_incoming.wav")
     ply:SetupHands()
 end
 

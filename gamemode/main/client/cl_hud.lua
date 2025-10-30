@@ -1,10 +1,18 @@
 local Hud = {}
-local w, h = ScrW(), ScrH()
-Hud.Posx, Hud.Posy =  10, h * 0.86
+local h = ScrH()
+Hud.Posx, Hud.Posy = 10, h * 0.86
 surface.CreateFont("Choc_RP_Font", {
     font = "Arial",
     extended = false,
     size = 23,
+    weight = 1500,
+    bold = true,
+})
+
+surface.CreateFont("Choc_RP_Dead", {
+    font = "Arial",
+    extended = false,
+    size = 100,
     weight = 1500,
     bold = true,
 })
@@ -20,7 +28,7 @@ local function zSetHealth(icon, name, length, x, y, col, nx, ny)
     surface.DrawOutlinedRect(Hud.Posx - x - 2, Hud.Posy - y - 2, lgnth * length + 6, 36, 3)
     draw.RoundedBox(4, Hud.Posx - x, Hud.Posy - y, lgnth, 32, Color(255, 255, 255, 255))
     draw.RoundedBox(4, Hud.Posx - x, Hud.Posy - y, lgnth * length, 32, col)
-    DrawGlowingText(true, name .. ": " .. tostring(math.Round(length % 100 * 100, 2)) .. "%", "Choc_RP_Font", Hud.Posx - x + 35, Hud.Posy - y + 3, Color(0, 0, 0, 255), TEXT_ALIGN_LEFT, TEXT_ALIGN_LEFT)
+    DrawGlowingText(true, name .. ": " .. tostring(math.Round(length % 100 * 100, 2)) .. "%", "Choc_RP_Font", Hud.Posx - x + 35, Hud.Posy - y + 3, Color(61, 61, 61), TEXT_ALIGN_LEFT, TEXT_ALIGN_LEFT)
     x = x or 0
     y = y or 0
     surface.SetMaterial(icon)
@@ -30,6 +38,12 @@ end
 
 hook.Add("HUDPaint", "MrRustHud", function()
     local ply = LocalPlayer()
+    if ply:Health() <= 0 then
+        draw.RoundedBox(0, 0, 0, ScrW(), ScrH(), Color(0, 0, 0))
+        draw.DrawText("You're Dead", "Choc_RP_Dead", ScrW() / 2 / 1.5, ScrH() / 2 / 1.2, Color(255, 255, 255, 255), TEXT_ALIGN_LEFT)
+        return
+    end
+
     if not IsValid(ply) then return end
     zSetHealth(health, "Health", ply:Health() / ply:GetMaxHealth(), 1.5, 1, Color(255, 0, 0, 255), 0, 0)
     zSetHealth(water, "Thirst", ply:Water() / WaterMax(), 1, -37, Color(24, 24, 255, 255), 1, 37)
@@ -39,10 +53,13 @@ end)
 local hide = {
     ["CHudHealth"] = true,
     ["CHudAmmo"] = true,
-    --["CHudWeaponSelection"] = true,
+    --["CHudWeaponSelection"] = true, -- To be remade or nah??
+    ["CHudDeathNotice"] = true,
     ["CHudSecondaryAmmo"] = true,
     ["CHudDamageIndicator"] = true,
     ["CHudVoiceStatus"] = true
 }
 
 hook.Add("HUDShouldDraw", "rustHide", function(name) if hide[name] then return false end end)
+function GM:AddDeathNotice() -- Disables the death hud
+end
