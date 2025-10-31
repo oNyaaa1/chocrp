@@ -17,6 +17,14 @@ surface.CreateFont("Choc_RP_Dead", {
     bold = true,
 })
 
+surface.CreateFont("Choc_RP_Deadsmoll", {
+    font = "Arial",
+    extended = false,
+    size = 50,
+    weight = 1500,
+    bold = true,
+})
+
 local health = Material("chocorp/hospital.png", "noclamp smooth")
 local water = Material("chocorp/water.png", "noclamp smooth")
 local food = Material("chocorp/hunger.png", "noclamp smooth")
@@ -41,6 +49,7 @@ hook.Add("HUDPaint", "MrRustHud", function()
     if ply:Health() <= 0 then
         draw.RoundedBox(0, 0, 0, ScrW(), ScrH(), Color(0, 0, 0))
         draw.DrawText("You're Dead", "Choc_RP_Dead", ScrW() / 2 / 1.5, ScrH() / 2 / 1.2, Color(255, 255, 255, 255), TEXT_ALIGN_LEFT)
+        draw.DrawText("Press any key to continue!", "Choc_RP_Deadsmoll", ScrW() / 2 / 1.5, ScrH() / 2 / 0.9, Color(255, 255, 255, 255), TEXT_ALIGN_LEFT)
         return
     end
 
