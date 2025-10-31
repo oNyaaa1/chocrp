@@ -184,8 +184,8 @@ function SWEP:PrimaryAttack()
 
     -- Remove 1 bullet from our clip
     self:TakePrimaryAmmo(1)
-    //self:SetLastPrimaryAttack(CurTime())
-    self:SetNextPrimaryFire(CurTime() + 1)
+    --self:SetLastPrimaryAttack(CurTime())
+    self:SetNextPrimaryFire(CurTime() + 0.2)
     if Owner:IsNPC() then return end
     -- Punch the player's view
     Owner:ViewPunch(Angle(util.SharedRandom("DarkRP_CSBase" .. self:EntIndex() .. "Mag" .. self:GetTotalUsedMagCount() .. "p" .. self:Clip1(), -1.2, -1.1) * self.Primary.Recoil, util.SharedRandom("DarkRP_CSBase" .. self:EntIndex() .. "Mag" .. self:GetTotalUsedMagCount() .. "y" .. self:Clip1(), -1.1, 1.1) * self.Primary.Recoil, 0))
