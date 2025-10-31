@@ -6,9 +6,10 @@ sTub.Jobs.Config = function(job, code)
     sTub.Jobs.Registered[#sTub.Jobs.Registered + 1] = {
         [job] = code
     }
+    return code()
 end
 
-sTub.Jobs.Config("Citizen", function()
+TEAM_CITIZEN = sTub.Jobs.Config("Citizen", function()
     return {
         color = Color(245, 245, 0),
         VIP = false,
@@ -22,10 +23,11 @@ sTub.Jobs.Config("Citizen", function()
         admin = 0,
         Hunger = 90,
         Thirst = 120,
+        Index = 1,
     }
 end)
 
-sTub.Jobs.Config("Robbers", function()
+TEAM_ROBBERS = sTub.Jobs.Config("Robbers", function()
     return {
         color = Color(255, 0, 0),
         VIP = false,
@@ -39,10 +41,11 @@ sTub.Jobs.Config("Robbers", function()
         admin = 0,
         Hunger = 90,
         Thirst = 120,
+        Index = 2,
     }
 end)
 
-sTub.Jobs.Config("Police", function()
+TEAM_POLICE = sTub.Jobs.Config("Police", function()
     return {
         color = Color(30, 0, 255),
         VIP = false,
@@ -56,10 +59,11 @@ sTub.Jobs.Config("Police", function()
         admin = 0,
         Hunger = 90,
         Thirst = 120,
+        Index = 3,
     }
 end)
 
-sTub.Jobs.Config("VIP - Citizen", function()
+TEAM_VIP_CITIZEN = sTub.Jobs.Config("VIP - Citizen", function()
     return {
         color = Color(0, 255, 247),
         VIP = true,
@@ -73,6 +77,7 @@ sTub.Jobs.Config("VIP - Citizen", function()
         admin = 0,
         Hunger = HungerMax(),
         Thirst = WaterMax(),
+        Index = 4,
     }
 end)
 
