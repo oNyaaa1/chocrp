@@ -36,7 +36,7 @@ local function zSetHealth(icon, name, length, x, y, col, nx, ny)
     surface.DrawOutlinedRect(Hud.Posx - x - 2, Hud.Posy - y - 2, lgnth * length + 6, 36, 3)
     draw.RoundedBox(4, Hud.Posx - x, Hud.Posy - y, lgnth, 32, Color(255, 255, 255, 255))
     draw.RoundedBox(4, Hud.Posx - x, Hud.Posy - y, lgnth * length, 32, col)
-    DrawGlowingText(true, name .. ": " .. tostring(math.Round(length % 100 * 100, 2)) .. "%", "Choc_RP_Font", Hud.Posx - x + 35, Hud.Posy - y + 3, Color(21, 21, 21), TEXT_ALIGN_LEFT, TEXT_ALIGN_LEFT)
+    draw.DrawText(name .. ": " .. tostring(math.Round(length % 100 * 100, 2)) .. "%", "Choc_RP_Font", Hud.Posx - x + 35, Hud.Posy - y + 3, Color(21, 21, 21), TEXT_ALIGN_LEFT, TEXT_ALIGN_LEFT)
     x = x or 0
     y = y or 0
     surface.SetMaterial(icon)
