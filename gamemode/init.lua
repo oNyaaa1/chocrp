@@ -17,7 +17,7 @@ timer.Create("HeartBeatSystem", 1, 0, function()
 end)
 
 function GM:PlayerSpawn(ply)
-    ply:EmitSound("vo/canals/male01/stn6_incoming.wav")
+    ply:EmitSound("vo/npc/male01/hellodrfm01.wav")
     ply:SetupHands()
 end
 
