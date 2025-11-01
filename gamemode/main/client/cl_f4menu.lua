@@ -1,4 +1,4 @@
-concommand.Add("F4Menu", function()
+hook.Add("ShowSpare2","OpenF4Menu", function()
     local mainframe = vgui.Create("VoidUI.Frame")
     mainframe:SSetSize(ScrW() / 1.2, ScrH() / 1.2)
     mainframe:Center()
