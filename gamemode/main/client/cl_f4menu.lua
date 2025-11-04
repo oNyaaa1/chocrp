@@ -1,11 +1,13 @@
 print("F4 Menu loaded")
-hook.Add("ShowSpare2", "F4Menu", function()
+hook.Add("ShowSpare2", "F4Menu", function(pl)
+    print(pl)
     local mainframe = vgui.Create("VoidUI.Frame")
     mainframe:SSetSize(ScrW() / 1.2, ScrH() / 1.2)
     mainframe:Center()
     mainframe:SetTitle("F4Menu")
     mainframe:MakePopup()
     local sidebar = mainframe:Add("VoidUI.Sidebar")
+    --BackgroundStart
     local background = sidebar:Add("VoidUI.BackgroundPanel")
     background:Dock(FILL) -- takes up the whole space (from parent)
     background:DockMargin(15, 15, 15, 15) -- adds a margin of 15px to all sides
@@ -40,6 +42,7 @@ hook.Add("ShowSpare2", "F4Menu", function()
         end
     end
 
+    --BackgroundEnd
     sidebar:AddTab("Jobs", VoidUI.Icons.Board, background)
     sidebar:AddTab("Profile", VoidUI.Icons.User, "VoidUI.BackgroundPanel")
     sidebar:AddTab("Settings", VoidUI.Icons.Settings, "VoidUI.BackgroundPanel", true)
@@ -48,5 +51,5 @@ end)
 
 hook.Add("PlayerBindPress", "f4Fix", function(ply, bind, pressd)
     --F4 Fix
-    if bind == "gm_showspare2" then hook.Run("ShowSpare2", "test") end
+    if bind == "gm_showspare2" then hook.Call("ShowSpare2", "F4Menu", ply) end
 end)
